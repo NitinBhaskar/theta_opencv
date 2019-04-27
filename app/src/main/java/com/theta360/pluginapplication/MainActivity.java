@@ -261,8 +261,10 @@ public class MainActivity extends PluginActivity {
             Toast.makeText(this, "No faces found!", Toast.LENGTH_SHORT).show();
         } else {
             for (int i = 0; i < facesArray.length; i++)
-                Imgproc.rectangle(src, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0, 255), 3);
+                Imgproc.rectangle(dst, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0, 255), 3);
         }
+
+        Core.flip(dst, src, 1);
 
         Utils.matToBitmap(src, img);
 
